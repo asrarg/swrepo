@@ -20,177 +20,179 @@ void CheckError(jvmtiError error, const char *mesg)
 	if (error != JVMTI_ERROR_NONE) {
 		fprintf(stderr, "Error: %d / %s\n", error, mesg);
 	}
+	else {
+		fprintf(stderr, "OK\n");
+	}
 }
 
-void setAllCapabilities (jvmtiEnv* env, int capability) {
+void setAllCapabilities (jvmtiEnv* env, jvmtiCapabilities *arg, int capability) {
 
-	jvmtiCapabilities *arg;
 	(void)memset(arg, 0,sizeof(jvmtiCapabilities));
 	switch(capability){
 	case 1:
-		fprintf(stderr, "can_tag_objects = 1"); //change this to standard printing
+		fprintf(stderr, "can_tag_objects = 1\n"); //change this to standard printing
 		arg->can_tag_objects = 1;
-	break;
+		break;
 	case 2:
-		fprintf(stderr, "can_generate_field_modification_events = 1");
-	arg->can_generate_field_modification_events = 1;
-	break;
+		fprintf(stderr, "can_generate_field_modification_events = 1\n");
+		arg->can_generate_field_modification_events = 1;
+		break;
 	case 3:
-		fprintf(stderr, "can_generate_field_access_events = 1");
-	arg->can_generate_field_access_events = 1;
-	break;
+		fprintf(stderr, "can_generate_field_access_events = 1\n");
+		arg->can_generate_field_access_events = 1;
+		break;
 	case 4:
-		fprintf(stderr, "can_get_bytecodes = 1");
-	arg->can_get_bytecodes = 1;
-	break;
+		fprintf(stderr, "can_get_bytecodes = 1\n");
+		arg->can_get_bytecodes = 1;
+		break;
 	case 5:
-		fprintf(stderr, "can_get_synthetic_attribute = 1");
-	arg->can_get_synthetic_attribute = 1;
-	break;
+		fprintf(stderr, "can_get_synthetic_attribute = 1\n");
+		arg->can_get_synthetic_attribute = 1;
+		break;
 	case 6:
-		fprintf(stderr, "can_get_owned_monitor_info = 1");
-	arg->can_get_owned_monitor_info = 1;
-	break;
+		fprintf(stderr, "can_get_owned_monitor_info = 1\n");
+		arg->can_get_owned_monitor_info = 1;
+		break;
 	case 7:
-		fprintf(stderr, "can_get_current_contended_monitor = 1");
-	arg->can_get_current_contended_monitor = 1;
-	break;
+		fprintf(stderr, "can_get_current_contended_monitor = 1\n");
+		arg->can_get_current_contended_monitor = 1;
+		break;
 	case 8:
-		fprintf(stderr, "can_get_monitor_info = 1");
-	arg->can_get_monitor_info = 1;
-	break;
+		fprintf(stderr, "can_get_monitor_info = 1\n");
+		arg->can_get_monitor_info = 1;
+		break;
 	case 9:
-		fprintf(stderr, "can_pop_frame = 1");
-	arg->can_pop_frame = 1;
-	break;
+		fprintf(stderr, "can_pop_frame = 1\n");
+		arg->can_pop_frame = 1;
+		break;
 	case 10:
-		fprintf(stderr, "can_redefine_classes = 1");
-	arg->can_redefine_classes = 1;
-	break;
+		fprintf(stderr, "can_redefine_classes = 1\n");
+		arg->can_redefine_classes = 1;
+		break;
 	case 11:
-		fprintf(stderr,"can_signal_thread = 1");
-	arg->can_signal_thread = 1;
-	break;
+		fprintf(stderr,"can_signal_thread = 1\n");
+		arg->can_signal_thread = 1;
+		break;
 	case 12:
-		fprintf(stderr,"can_get_source_file_name = 1");
-	arg->can_get_source_file_name = 1;
-	break;
+		fprintf(stderr,"can_get_source_file_name = 1\n");
+		arg->can_get_source_file_name = 1;
+		break;
 	case 13:
-		fprintf(stderr,"can_get_line_numbers = 1");
-	arg->can_get_line_numbers = 1;
-	break;
+		fprintf(stderr,"can_get_line_numbers = 1\n");
+		arg->can_get_line_numbers = 1;
+		break;
 	case 14:
-		fprintf(stderr,"can_get_source_debug_extension = 1");
-	arg->can_get_source_debug_extension = 1;
-	break;
+		fprintf(stderr,"can_get_source_debug_extension = 1\n");
+		arg->can_get_source_debug_extension = 1;
+		break;
 	case 15:
-		fprintf(stderr,"can_access_local_variables = 1");
-	arg->can_access_local_variables = 1;
-	break;
+		fprintf(stderr,"can_access_local_variables = 1\n");
+		arg->can_access_local_variables = 1;
+		break;
 	case 16:
-		fprintf(stderr,"can_maintain_original_method_order = 1");
-	arg->can_maintain_original_method_order = 1;
-	break;
+		fprintf(stderr,"can_maintain_original_method_order = 1\n");
+		arg->can_maintain_original_method_order = 1;
+		break;
 	case 17:
-		fprintf(stderr,"can_generate_single_step_events = 1");
-	arg->can_generate_single_step_events = 1;
-	break;
+		fprintf(stderr,"can_generate_single_step_events = 1\n");
+		arg->can_generate_single_step_events = 1;
+		break;
 	case 18:
-		fprintf(stderr,"can_generate_exception_events = 1");
-	arg->can_generate_exception_events = 1;
-	break;
+		fprintf(stderr,"can_generate_exception_events = 1\n");
+		arg->can_generate_exception_events = 1;
+		break;
 	case 19:
-		fprintf(stderr,"can_generate_frame_pop_events = 1");
-	arg->can_generate_frame_pop_events = 1;
-	break;
+		fprintf(stderr,"can_generate_frame_pop_events = 1\n");
+		arg->can_generate_frame_pop_events = 1;
+		break;
 	case 20:
-		fprintf(stderr,"can_generate_breakpoint_events = 1");
-	arg->can_generate_breakpoint_events = 1;
-	break;
+		fprintf(stderr,"can_generate_breakpoint_events = 1\n");
+		arg->can_generate_breakpoint_events = 1;
+		break;
 	case 21:
-		fprintf(stderr,"can_suspend = 1");
-	arg->can_suspend = 1;
-	break;
+		fprintf(stderr,"can_suspend = 1\n");
+		arg->can_suspend = 1;
+		break;
 	case 22:
-		fprintf(stderr,"can_redefine_any_class = 1");
-	arg->can_redefine_any_class = 1;
-	break;
+		fprintf(stderr,"can_redefine_any_class = 1\n");
+		arg->can_redefine_any_class = 1;
+		break;
 	case 23:
-		fprintf(stderr,"can_get_current_thread_cpu_time = 1");
-	arg->can_get_current_thread_cpu_time = 1;
-	break;
+		fprintf(stderr,"can_get_current_thread_cpu_time = 1\n");
+		arg->can_get_current_thread_cpu_time = 1;
+		break;
 	case 24:
-		fprintf(stderr,"can_get_thread_cpu_time = 1");
-	arg->can_get_thread_cpu_time = 1;
-	break;
+		fprintf(stderr,"can_get_thread_cpu_time = 1\n");
+		arg->can_get_thread_cpu_time = 1;
+		break;
 	case 25:
-		fprintf(stderr,"can_generate_method_entry_events = 1");
-	arg->can_generate_method_entry_events = 1;
-	break;
+		fprintf(stderr,"can_generate_method_entry_events = 1\n");
+		arg->can_generate_method_entry_events = 1;
+		break;
 	case 26:
-		fprintf(stderr,"can_generate_method_exit_events = 1");
-	arg->can_generate_method_exit_events = 1;
-	break;
+		fprintf(stderr,"can_generate_method_exit_events = 1\n");
+		arg->can_generate_method_exit_events = 1;
+		break;
 	case 27:
-		fprintf(stderr,"can_generate_all_class_hook_events = 1");
-	arg->can_generate_all_class_hook_events = 1;
-	break;
+		fprintf(stderr,"can_generate_all_class_hook_events = 1\n");
+		arg->can_generate_all_class_hook_events = 1;
+		break;
 	case 28:
-		fprintf(stderr,"can_generate_compiled_method_load_events = 1");
-	arg->can_generate_compiled_method_load_events = 1;
-	break;
+		fprintf(stderr,"can_generate_compiled_method_load_events = 1\n");
+		arg->can_generate_compiled_method_load_events = 1;
+		break;
 	case 29:
-		fprintf(stderr,"can_generate_monitor_events = 1");
-	arg->can_generate_monitor_events = 1;
-	break;
+		fprintf(stderr,"can_generate_monitor_events = 1\n");
+		arg->can_generate_monitor_events = 1;
+		break;
 	case 30:
-		fprintf(stderr,"can_generate_vm_object_alloc_events = 1");
-	arg->can_generate_vm_object_alloc_events = 1;
-	break;
+		fprintf(stderr,"can_generate_vm_object_alloc_events = 1\n");
+		arg->can_generate_vm_object_alloc_events = 1;
+		break;
 	case 31:
-		fprintf(stderr,"can_generate_native_method_bind_events = 1");
-	arg->can_generate_native_method_bind_events = 1;
-	break;
+		fprintf(stderr,"can_generate_native_method_bind_events = 1\n");
+		arg->can_generate_native_method_bind_events = 1;
+		break;
 	case 32:
-		fprintf(stderr,"can_generate_garbage_collection_events = 1");
-	arg->can_generate_garbage_collection_events = 1;
-	break;
+		fprintf(stderr,"can_generate_garbage_collection_events = 1\n");
+		arg->can_generate_garbage_collection_events = 1;
+		break;
 	case 33:
-		fprintf(stderr,"can_generate_object_free_events = 1");
-	arg->can_generate_object_free_events = 1;
-	break;
+		fprintf(stderr,"can_generate_object_free_events = 1\n");
+		arg->can_generate_object_free_events = 1;
+		break;
 	case 34:
-		fprintf(stderr,"can_force_early_return = 1");
-	arg->can_force_early_return = 1;
-	break;
+		fprintf(stderr,"can_force_early_return = 1\n");
+		arg->can_force_early_return = 1;
+		break;
 	case 35:
-		fprintf(stderr,"can_get_owned_monitor_stack_depth_info = 1");
-	arg->can_get_owned_monitor_stack_depth_info = 1;
-	break;
+		fprintf(stderr,"can_get_owned_monitor_stack_depth_info = 1\n");
+		arg->can_get_owned_monitor_stack_depth_info = 1;
+		break;
 	case 36:
-		fprintf(stderr,"can_get_constant_pool = 1");
-	arg->can_get_constant_pool = 1;
-	break;
+		fprintf(stderr,"can_get_constant_pool = 1\n");
+		arg->can_get_constant_pool = 1;
+		break;
 	case 37:
-		fprintf(stderr,"can_set_native_method_prefix = 1");
-	arg->can_set_native_method_prefix = 1;
-	break;
+		fprintf(stderr,"can_set_native_method_prefix = 1\n");
+		arg->can_set_native_method_prefix = 1;
+		break;
 	case 38:
-		fprintf(stderr,"can_retransform_classes = 1");
-	arg->can_retransform_classes = 1;
-	break;
+		fprintf(stderr,"can_retransform_classes = 1\n");
+		arg->can_retransform_classes = 1;
+		break;
 	case 39:
-		fprintf(stderr,"can_retransform_any_class = 1");
-	arg->can_retransform_any_class = 1;
-	break;
+		fprintf(stderr,"can_retransform_any_class = 1\n");
+		arg->can_retransform_any_class = 1;
+		break;
 	case 40:
-		fprintf(stderr,"can_generate_resource_exhaustion_heap_events = 1");
-	arg->can_generate_resource_exhaustion_heap_events = 1;
-	break;
+		fprintf(stderr,"can_generate_resource_exhaustion_heap_events = 1\n");
+		arg->can_generate_resource_exhaustion_heap_events = 1;
+		break;
 	case 41:
-		fprintf(stderr,"can_generate_resource_exhaustion_threads_events = 1");
-	arg->can_generate_resource_exhaustion_threads_events = 1;
-	break;
+		fprintf(stderr,"can_generate_resource_exhaustion_threads_events = 1\n");
+		arg->can_generate_resource_exhaustion_threads_events = 1;
+		break;
 	default:
 		printf("Error switch cap\n" );
 		//err = (*jvmti)->GetPotentialCapabilities(jvmti, &capa);
@@ -240,13 +242,20 @@ void setAllCapabilities (jvmtiEnv* env, int capability) {
 */
 	
 JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM *vm, char *options, void *reserved) {
+	jvmtiError error;
+
 	fprintf(stdout, "Agent was loaded!\n");
+
+	error = (*vm)->GetEnv(vm, (void **) &jvmti, JVMTI_VERSION_1_2);
+	if (error != JVMTI_ERROR_NONE) {
+		return JNI_ABORT;
+	}
 
 	for(int i=1; i<42; i++)
 	{
-		setAllCapabilities(jvmti,i);
-		fprintf(stdout, "Agent IS HERE!\n");
-
+		setAllCapabilities(jvmti, &capa, i);
+	 	error = (*jvmti)->AddCapabilities(jvmti, &capa);
+	 	CheckError(error, "Unable to get necessary JVMTI capabilities.");
 	}
 
 
@@ -273,8 +282,6 @@ JNIEXPORT jstring JNICALL Java_Test_callAG(JNIEnv *env, jclass clazz,
 
 	(*env)->GetJavaVM(env, &vm);
 
-
-
 	error = (*vm)->GetEnv(vm, (void **) &jvmti, JVMTI_VERSION_1_2);
 	if (error != JVMTI_ERROR_NONE) {
 		return (*env)->NewStringUTF(env, "Unable to retrieve jvmti ptr.");
@@ -282,7 +289,15 @@ JNIEXPORT jstring JNICALL Java_Test_callAG(JNIEnv *env, jclass clazz,
 
  	error = (*vm)->GetEnv(vm, (void **)&jvmti, JVMTI_VERSION_1_2);
  	CheckError(error, "Unable to retrieve jvmti ptr.");
-//
+
+	for(int i=1; i<42; i++)
+	{
+		setAllCapabilities(jvmti, &capa, i);
+	 	error = (*jvmti)->AddCapabilities(jvmti, &capa);
+	 	CheckError(error, "Unable to get necessary JVMTI capabilities.");
+	}
+
+	//
 
  	error = (*jvmti)->GetAvailableProcessors(jvmti, result);
 	if (error != JVMTI_ERROR_NONE) {
